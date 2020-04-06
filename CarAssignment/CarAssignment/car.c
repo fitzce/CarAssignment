@@ -11,8 +11,8 @@ struct car
 	char makeModel;
 	char colour;
 	int noOwners;
-    int num1;
-	bool reserved = true;
+    int num1;//get rid of this
+	bool reserved = true;//get rid of = true;
 
 };
 
@@ -21,9 +21,10 @@ struct LinearNode {
     struct LinearNode *next;
 };
 
-struct LinearNode *front = NULL; // the front of the list
+struct LinearNode *front = NULL; // the front of the list//change front to list
 struct LinearNode *last = NULL; // the end of the list 
 
+//Function prototypes, every method you create must be declared up here 
 void addCars();
 void allCars();
 
@@ -31,29 +32,29 @@ void allCars();
 int getCarSize();
 void inputCar(int, struct car*);
 void displayCars(int, struct car*);
-*/
+*///get rid of this
 
  
 int main(void)
 {
-    struct car[SIZE];
+    struct car[SIZE];//get rid of this
     int numCars;
-
+//add all methods here
     addCars();
     allCars();
 
     numCars = getCarSize();
 
-    int input();
+    int input();//dont know what this is
     {
         int in;
         scanf("%d", &in);
         return (in);
     }
 
-    int input();
-    int num;
-
+    int input();//get rid
+    int num;//get rid
+//Make this its own method called menu() take it out of main()
     printf("1: Add New Car");
     printf("2: Sell a Car");
     printf("3: Reserve/ Unreserve a Car");
@@ -64,7 +65,7 @@ int main(void)
     printf("Pick a Number");
 
     num = input();
-
+//Change this to an if statement
     switch (num)
     {
 
@@ -74,20 +75,20 @@ int main(void)
 
         void addCars(); {
             int i;
-            int aNumber;
+            int aNumber;//get rid
             struct LinearNode* aNode;
             struct car* anElement;
 
             // add SIZE nodes to the list
-            for (i = 0; i < SIZE; i++) {
+            for (i = 0; i < SIZE; i++) {//take out for loop
                 printf("Enter a number for node %d: ", i + 1);
-                scanf("%d", &aNumber);
+                scanf("%d", &aNumber);//This is were youll add rest of car details
 
                 anElement = (struct car*)malloc(sizeof(struct car));
 
                 aNode = (struct LinearNode*)malloc(sizeof(struct LinearNode));
 
-                anElement->num1 = aNumber;
+                anElement->num1 = aNumber;//change these to reg, model, make etc
 
                 if (aNode == NULL)
                     printf("Error - no space for the new node\n");
@@ -95,7 +96,7 @@ int main(void)
                     aNode->next = NULL;
                     aNode->element = anElement;
 
-                    if (isEmpty())
+                    if (isEmpty())//declare method
                     {
                         front = aNode;
                         last = aNode;
@@ -117,15 +118,16 @@ int main(void)
         break;
     }
     case 3:
-    {
+    {//do sell car first
         char yesNO;
 
         printf("RESERVE/UNRESERVE A CAR");
-
+//Reason why this isnt working is because in c strings are arrays,
+//best of using characters eg. would you like to reserve get the user to type in Y or N, not the full word
 
         printf("Would you like to reserve a car? YES/NO");
         scanf("%s", yesNO);
-
+//BRACES
         if (yesNO = YES)
             printf("You have reserved a car")
             reserved = true;
@@ -151,6 +153,7 @@ int main(void)
             else {
                 current = front;
                 while (current != NULL) {
+			//put the rest of car details colour, make etc
                     printf("All Cars %d\n", current->element->num1);
                     current = current->next;
                 } //end while
@@ -191,7 +194,7 @@ int main(void)
         break;
     }
     case 6:
-    {
+    {//do everything else first leave till last
         printf("RETURN A CAR");
         struct node* temp;
         while (*front != NULL)
@@ -205,6 +208,7 @@ int main(void)
     }
     case 7:
     {
+	//Need to alloborate(Cant spell ahaha)
         printf("EXIT");
         break;
     }
@@ -214,10 +218,10 @@ int main(void)
     }
 
     }
-
+//Put these at the end of main()
     getchar();
     getchar();
-
+//Get rid
     return 0;
 }
 
